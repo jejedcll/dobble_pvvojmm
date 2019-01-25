@@ -66,7 +66,7 @@ output
   ["{\n  \"nc\":", show(NC), ",\n  \"ns\":", show(NS), ",\n  \"nsc\":", show(NSC), ",\n  \"nv\":", show(NV),
   ",\n  \"cards_symbols\": [\n"]
   ++ [ if s = 1 then "    {\n      \"id\":" ++ show(c) ++ ",\n"
-        ++ "      \"symbols\": [" else "," endif
+        ++ "      \"symboles\": [" else "," endif
         ++ show(jeu_symb[c, s]) ++ if s = NSC then "]\n    }" ++ if c = NC then "\n" else ",\n" endif else "" endif
   | c in CARTES, s in SYMB_CARTES]
   ++ ["  ],\n  \"cards_variantes\": [\n"]
