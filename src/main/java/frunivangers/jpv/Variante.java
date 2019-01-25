@@ -6,7 +6,7 @@ public class Variante {
 	private String couleur;
 	private String taille;
 	private String cheminCouleur;
-	
+
 	public Variante(String couleur, String taille, String chemin) {
 		this.id = compteur;
 		compteur++;

@@ -4,19 +4,23 @@ import com.google.gson.Gson;
 import frunivangers.jpv.Carte;
 import frunivangers.jpv.Paquet;
 import frunivangers.jpv.generator.serialization.Model;
+import repositories.SymboleFactory;
 
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+@SuppressWarnings("WeakerAccess")
 public class GenerateurPaquetMiniZinc implements GenerateurPaquet {
 
     private boolean shuffle = true;
     private String minizincPath;
+    private SymboleFactory symboleFactory;
 
-    public GenerateurPaquetMiniZinc(String minizincPath) {
+    public GenerateurPaquetMiniZinc(String minizincPath, SymboleFactory symboleFactory) {
         this.minizincPath = minizincPath;
+        this.symboleFactory = symboleFactory;
     }
 
     public GenerateurPaquetMiniZinc(String minizincPath, boolean shuffle) {
@@ -32,20 +36,24 @@ public class GenerateurPaquetMiniZinc implements GenerateurPaquet {
         assert nombreSymboleParCarte <= nombreSymbol;
         assert nombreVariantes > 0;
 
+        File dataFile = this.setUpDataFile(nombreCarte, nombreSymbol, nombreSymboleParCarte, nombreVariantes);
+        Model model = this.loadFromMinizinc(dataFile);
+
         List<Carte> carteList = new ArrayList<>();
 
-        File dataFile = this.setUpDataFile(nombreCarte, nombreSymbol, nombreSymboleParCarte, nombreVariantes);
-
-        String jsonModel = this.runMinizinc(dataFile);
-
-//        System.out.println("\"" + jsonModel + "\"");
-
-        Gson gson = new Gson();
-
-        Model model = gson.fromJson(jsonModel, Model.class);
-
-        System.out.println(model);
         return new Paquet(Collections.unmodifiableList(carteList));
+    }
+
+    protected List<Carte> cartesListFromModel(Model model){
+
+        CarteListeGenerateur carteListeGenerateur;
+        if(this.shuffle){
+            carteListeGenerateur = new SimpleCarteListeGenerateur(this.symboleFactory);
+        }else{
+            carteListeGenerateur = new ShuffleCarteListeGenerateur(this.symboleFactory);
+        }
+
+        return carteListeGenerateur.fromModel(model);
     }
 
     protected File setUpDataFile(int nombreCarte, int nombreSymbol, int nombreSymboleParCarte, int nombreVariante) throws IOException {
@@ -67,6 +75,19 @@ public class GenerateurPaquetMiniZinc implements GenerateurPaquet {
         writer.close();
 
         return dataFile;
+    }
+
+    protected Model loadFromMinizinc(File dataFile) throws IOException, InterruptedException {
+
+        String jsonModel = this.runMinizinc(dataFile);
+
+        Gson gson = new Gson();
+
+        Model model = gson.fromJson(jsonModel, Model.class);
+
+        System.out.println(model);
+
+        return model;
     }
 
     protected String runMinizinc(File dataFile) throws IOException, InterruptedException {

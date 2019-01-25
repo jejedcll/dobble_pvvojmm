@@ -4,8 +4,8 @@ import java.util.Arrays;
 
 public class CartesVariantes {
 
-    private int id;
-    private int[] variantes;
+    public int id;
+    public int[] variantes;
 
     @Override
     public String toString() {

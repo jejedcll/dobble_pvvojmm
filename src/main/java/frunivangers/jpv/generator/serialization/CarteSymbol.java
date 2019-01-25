@@ -5,8 +5,8 @@ import java.util.Arrays;
 
 public class CarteSymbol {
 
-    private int id;
-    private int[] symboles;
+    public int id;
+    public int[] symboles;
 
     @Override
     public String toString() {

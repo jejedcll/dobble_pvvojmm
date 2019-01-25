@@ -5,8 +5,8 @@ import java.util.Arrays;
 
 public class Model {
 
-    private CartesVariantes[] cards_variantes;
-    private CarteSymbol[] cards_symbols;
+    public CartesVariantes[] cards_variantes;
+    public CarteSymbol[] cards_symbols;
 
     @Override
     public String toString() {

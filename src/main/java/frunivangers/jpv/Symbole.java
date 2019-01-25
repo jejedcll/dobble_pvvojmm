@@ -1,19 +1,23 @@
 package frunivangers.jpv;
 
 public class Symbole {
-	private static int compteur =0;
-	private int id;
-	private Variante variante;
+	private final SymboleType symboleType;
+	private final Variante variante;
 	
-	public Symbole(Variante variante) {
-		this.id=this.compteur;
-		this.compteur ++;
+	public Symbole(SymboleType symboleType, Variante variante) {
+		this.symboleType = symboleType;
 		this.variante =variante;
 	}
-	
-	
-	public int getId() {
-		return this.getId();
-	}
 
+    public SymboleType getSymboleType() {
+        return symboleType;
+    }
+
+    //	public int getId() {
+//		return id;
+//	}
+
+	public Variante getVariante() {
+		return variante;
+	}
 }
