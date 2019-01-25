@@ -23,7 +23,7 @@
 	      <configuration>
 	        <archive>
 	          <manifest>
-	            <mainClass>fully.qualified.MainClass</mainClass>
+	            <mainClass>frunivangers.jpv.App</mainClass>
 	          </manifest>
 	        </archive>
 	        <descriptorRefs>
