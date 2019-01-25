@@ -1,4 +1,4 @@
-package frunivangers.jpv;
+package frunivangers.jpv.ui;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -6,7 +6,6 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
 import java.awt.BorderLayout;
-import javax.swing.DropMode;
 import javax.swing.JButton;
 
 public class Frame extends JFrame{

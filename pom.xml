@@ -23,7 +23,7 @@
 	      <configuration>
 	        <archive>
 	          <manifest>
-	            <mainClass>frunivangers.jpv.generator.CliTest</mainClass>
+	            <mainClass>frunivangers.jpv.App</mainClass>
 	          </manifest>
 	        </archive>
 	        <descriptorRefs>
