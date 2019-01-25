@@ -1,4 +1,4 @@
-package main.java.frunivangers.jpv;
+package frunivangers.jpv;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
