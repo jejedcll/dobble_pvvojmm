@@ -23,8 +23,9 @@ public class GenerateurPaquetMiniZinc implements GenerateurPaquet {
         this.symboleFactory = symboleFactory;
     }
 
-    public GenerateurPaquetMiniZinc(String minizincPath, boolean shuffle) {
+    public GenerateurPaquetMiniZinc(String minizincPath, SymboleFactory symboleFactory, boolean shuffle) {
         this.minizincPath = minizincPath;
+        this.symboleFactory = symboleFactory;
         this.shuffle = shuffle;
     }
 
@@ -39,9 +40,9 @@ public class GenerateurPaquetMiniZinc implements GenerateurPaquet {
         File dataFile = this.setUpDataFile(nombreCarte, nombreSymbol, nombreSymboleParCarte, nombreVariantes);
         Model model = this.loadFromMinizinc(dataFile);
 
-        List<Carte> carteList = new ArrayList<>();
+        List<Carte> carteList = this.cartesListFromModel(model);
 
-        return new Paquet(Collections.unmodifiableList(carteList));
+        return new Paquet(carteList);
     }
 
     protected List<Carte> cartesListFromModel(Model model){
