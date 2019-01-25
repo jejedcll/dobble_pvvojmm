@@ -1,4 +1,4 @@
-package frunivangers.jpv;
+package main.java.frunivangers.jpv;
 
 public class Variante {
 	private static int compteur =0;

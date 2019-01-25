@@ -1,4 +1,4 @@
-package frunivangers.jpv;
+package main.java.frunivangers.jpv;
 
 import java.util.List;
 import java.util.Timer;
