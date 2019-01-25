@@ -8,8 +8,6 @@ import frunivangers.jpv.generator.serialization.Model;
 import repositories.SymboleFactory;
 
 import java.util.*;
-import java.util.stream.Collectors;
-import java.util.stream.IntStream;
 
 public class ShuffleCarteListeGenerateur implements CarteListeGenerateur{
 

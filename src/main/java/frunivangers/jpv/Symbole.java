@@ -13,9 +13,9 @@ public class Symbole {
         return symboleType;
     }
 
-    //	public int getId() {
-//		return id;
-//	}
+	public int getId() {
+		return this.getSymboleType().getId();
+	}
 
 	public Variante getVariante() {
 		return variante;
