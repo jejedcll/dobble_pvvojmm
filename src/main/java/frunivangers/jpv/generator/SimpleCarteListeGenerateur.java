@@ -23,6 +23,7 @@ public class SimpleCarteListeGenerateur implements CarteListeGenerateur {
     @Override
     public List<Carte> fromModel(Model model) {
 
+        List<Carte> cartes = new ArrayList<>();
         for(int i = 0; i < model.cards_symbols.length; ++i){
             List<Symbole> symboleList = new ArrayList<>();
             CarteSymbol carteSymbol = model.cards_symbols[i];
@@ -36,9 +37,9 @@ public class SimpleCarteListeGenerateur implements CarteListeGenerateur {
 
                 symboleList.add(symbole);
             }
-
+            cartes.add(new Carte(symboleList));
         }
-        //TODO
-        return null;
+
+        return cartes;
     }
 }
