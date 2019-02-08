@@ -1,9 +1,7 @@
 package frunivangers.jpv.generator;
 
 import frunivangers.jpv.Carte;
-import frunivangers.jpv.GsonParser;
 import frunivangers.jpv.Symbole;
-import frunivangers.jpv.Variante;
 import frunivangers.jpv.generator.serialization.CarteSymbol;
 import frunivangers.jpv.generator.serialization.CartesVariantes;
 import frunivangers.jpv.generator.serialization.Model;

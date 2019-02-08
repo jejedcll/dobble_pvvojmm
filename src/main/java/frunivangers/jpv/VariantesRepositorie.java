@@ -12,7 +12,7 @@ import com.google.gson.JsonIOException;
 import com.google.gson.JsonSyntaxException;
 
 
-public class GsonParser {
+public class VariantesRepositorie {
 	private Map<Integer, Variante> variantes;
 
 	public void parse(String file) {
