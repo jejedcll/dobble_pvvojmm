@@ -12,9 +12,10 @@ import frunivangers.jpv.ui.Frame;
 public class Partie implements Engine {
 	private List<PartieObservateur> obs;
 	private int tour;
-	private Timer timer;
 	private Plateau plateau;
 	private Frame frame;
+
+	private TimerThread timerThread;
 
 	public Partie() {
 		plateau=new Plateau();
@@ -29,6 +30,18 @@ public class Partie implements Engine {
 		plateau.newGame();
 		showSymboles(plateau.retourneCarte(1));
 		frame.setInGameVisibility(true);
+
+		try {
+		if(timerThread != null){
+			timerThread.stop();
+			timerThread.join();
+			timerThread = null;
+		}
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		timerThread = new TimerThread(this);
+		timerThread.start();
 	}
 
 	@Override
@@ -73,6 +86,7 @@ public class Partie implements Engine {
 
 	@Override
 	public void endGame(String endGameText) {
+		timerThread.setStop();
 		frame.setInGameVisibility(false);
 		frame.setEndGameLabelText(endGameText);
 		frame.setEndGameVisibility(true);

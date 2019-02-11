@@ -13,7 +13,6 @@ set of int: CARTES = 1..NC;
 set of int: SYMBOLES = 1..NS;
 set of int: SYMB_CARTES = 1..NSC;
 set of int: VARIANTES = 1..NV;
-set of int: SYMUTIL = 1..NC*NSC;
 
 array[CARTES, SYMB_CARTES] of var SYMBOLES: jeu_symb;
 array[CARTES, SYMB_CARTES] of var VARIANTES: jeu_var;
