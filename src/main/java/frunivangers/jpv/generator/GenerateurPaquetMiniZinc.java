@@ -12,7 +12,6 @@ import java.util.List;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-@SuppressWarnings("WeakerAccess")
 public class GenerateurPaquetMiniZinc implements GenerateurPaquet {
 
     private final static Logger logger = LogManager.getLogger();
@@ -36,7 +35,9 @@ public class GenerateurPaquetMiniZinc implements GenerateurPaquet {
     public Paquet generate(int nombreCarte, int nombreSymbol, int nombreSymboleParCarte, int nombreVariantes) throws IOException, InterruptedException {
         assert nombreCarte > 0;
         assert nombreSymbol > 0;
+        assert nombreSymbol <= 60;
         assert nombreSymboleParCarte > 0;
+        assert nombreSymboleParCarte <= 8;
         assert nombreSymboleParCarte <= nombreSymbol;
         assert nombreVariantes > 0;
 

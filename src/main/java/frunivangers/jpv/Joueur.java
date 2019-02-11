@@ -8,7 +8,6 @@ public class Joueur {
 	private int id;
 	private int score;
 	private List<Carte> main;
-	private List<JoueurObservateur> obs;
 
 	public Joueur() {
 		score=0;

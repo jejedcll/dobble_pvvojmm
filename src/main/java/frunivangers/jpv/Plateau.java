@@ -1,7 +1,6 @@
 package frunivangers.jpv;
 
 import java.util.HashMap;
-import java.util.List;
 
 import frunivangers.jpv.generator.GenerateurPaquet;
 import frunivangers.jpv.generator.GenerateurPaquetMiniZinc;
@@ -29,7 +28,11 @@ public class Plateau {
 		IA=new Joueur();		
 	}
 
-	public void newGame() {
+	public Joueur[] getJoueurs() {
+		return new Joueur[] {IA, J1};
+	}
+
+	public void newGame(int nombreCarte, int nombreSymboleParCarte) {
 		J1.reset();
 		IA.reset();
       try{
@@ -37,7 +40,7 @@ public class Plateau {
     	  VarianteRepository varianteRepository = JsonFileVarianteRepository.fromFile(new File("variantes.json"));
     	  SymboleFactory symboleFactory = new SymboleFactoryImpl(symboleTypeRepository, varianteRepository);
     	  GenerateurPaquet generateurPaquet = new GenerateurPaquetMiniZinc("./minizinc-bundle", symboleFactory, true);
-    	  pioche = generateurPaquet.generate(7,7,3,3);
+    	  pioche=generateurPaquet.generate(nombreCarte, 20, nombreSymboleParCarte, 48);
     	  for (Carte c : pioche.getCartes()){
     		  System.out.println(c.toString());
     	  }
@@ -46,12 +49,11 @@ public class Plateau {
       	} catch (Exception e) {
       e.printStackTrace();
       }
-	
 		pioche.Distribuer(new Joueur[] {J1, IA});
 	}
 
 	public HashMap<String, Carte> retourneCarte(int tour) {
-		if(tour<J1.getMain().size()) {
+		if(tour<=J1.getMain().size()) {
 			carteJoueur=J1.getMain().get((tour-1));
 			carteIA=IA.getMain().get((tour-1));
 			HashMap<String, Carte> cartes=new HashMap<String, Carte>();
@@ -68,7 +70,7 @@ public class Plateau {
 			case "ia":
 				b=carteJoueur.compareSymbole(carteIA.getSymbole(i));
 				break;
-			case "j":
+			case "joueur":
 				b=carteIA.compareSymbole(carteJoueur.getSymbole(i));
 				break;
 		}

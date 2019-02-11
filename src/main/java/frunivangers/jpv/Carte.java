@@ -14,7 +14,8 @@ public class Carte {
 	}
 
 	public Symbole getSymbole(int i) {
-		return symboles.get(i);
+		if(symboles.size()>=i) return symboles.get(i-1);
+		else return null;
 	}
 
 	public boolean compareSymbole(Symbole s) {

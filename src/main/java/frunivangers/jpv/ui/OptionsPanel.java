@@ -9,20 +9,20 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 public class OptionsPanel extends JPanel {
-	private JTextField scoreField;
+	private JTextField carteField;
 	private JTextField timeField;
 	private JTextField symboleField;
 
 	public OptionsPanel(Engine e) {
 		setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
-		JPanel scorePanel=new JPanel();
-		scorePanel.setLayout(new FlowLayout());
-		JLabel scoreLabel=new JLabel("Limite de score:");
-		scoreField=new JTextField();
-		scoreField.setColumns(5);
-		scorePanel.add(scoreLabel);
-		scorePanel.add(scoreField);
-		scorePanel.setAlignmentX(CENTER_ALIGNMENT);
+		JPanel cartePanel=new JPanel();
+		cartePanel.setLayout(new FlowLayout());
+		JLabel carteLabel=new JLabel("Nombre de carte:");
+		carteField=new JTextField();
+		carteField.setColumns(5);
+		cartePanel.add(carteLabel);
+		cartePanel.add(carteField);
+		cartePanel.setAlignmentX(CENTER_ALIGNMENT);
 
 		JPanel timePanel=new JPanel();
 		timePanel.setLayout(new FlowLayout());
@@ -54,13 +54,25 @@ public class OptionsPanel extends JPanel {
 		buttonPanel.add(cancelButton);
 		buttonPanel.setAlignmentX(CENTER_ALIGNMENT);
 
-		add(scorePanel);
+		add(cartePanel);
 		add(timePanel);
 		add(symbolePanel);
 		add(buttonPanel);
 	}
 
 	public String getOptionsValue() {
-		return scoreField.getText()+"="+timeField.getText()+"="+symboleField.getText();
+		return carteField.getText()+"="+timeField.getText()+"="+symboleField.getText();
+	}
+
+	public void setCarteFieldTxt(String s) {
+		carteField.setText(s);
+	}
+
+	public void setTimeFieldTxt(String s) {
+		timeField.setText(s);
+	}
+
+	public void setSymboleFieldTxt(String s) {
+		symboleField.setText(s);
 	}
 }

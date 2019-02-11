@@ -39,6 +39,7 @@ Dimension size=new Dimension();
 			if(id%15==0) y-=72;
 			image=image.getSubimage(x, y, 48, 65);
 			size.setSize(image.getWidth(), image.getHeight());
+			repaint();
 		} catch (IOException e) {
 			System.out.println("Erreur chargement de l'image "+path+" dans la classe LoadAndShow !");
 			throw e;

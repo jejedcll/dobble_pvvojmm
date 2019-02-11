@@ -1,6 +1,5 @@
 package frunivangers.jpv.generator.serialization;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 
 public class CarteSymbol {

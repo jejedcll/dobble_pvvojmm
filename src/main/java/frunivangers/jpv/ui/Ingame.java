@@ -205,4 +205,20 @@ public class Ingame extends JPanel {
 				
 		}
 	}
+
+	public void setNbTourLabelTxt(String s) {
+		nbTourLabel.setText(s);
+	}
+
+	public void setScoreJoueurLabelTxt(String s) {
+		scoreJoueurLabel.setText(s);
+	}
+
+	public void setScoreIaLabelTxt(String s) {
+		scoreIaLabel.setText(s);
+	}
+
+	public void setTempsRestantLabelTxt(String s) {
+		tempsRestantLabel.setText(s);
+	}
 }

@@ -67,8 +67,36 @@ public class Frame extends JFrame {
 		return optionsPanel.getOptionsValue();
 	}
 
+	public void setCarteFieldTxt(String s) {
+		optionsPanel.setCarteFieldTxt(s);
+	}
+
+	public void setTimeFieldTxt(String s) {
+		optionsPanel.setTimeFieldTxt(s);
+	}
+
+	public void setSymboleFieldTxt(String s) {
+		optionsPanel.setSymboleFieldTxt(s);
+	}
+
 	public void setImage(String slot, String path, int id) throws IOException {
 		inGamePanel.setImage(slot, path, id);
+	}
+
+	public void setNbTourLabelTxt(String s) {
+		inGamePanel.setNbTourLabelTxt(s);
+	}
+
+	public void setScoreJoueurLabelTxt(String s) {
+		inGamePanel.setScoreJoueurLabelTxt(s);
+	}
+
+	public void setScoreIaLabelTxt(String s) {
+		inGamePanel.setScoreIaLabelTxt(s);
+	}
+
+	public void setTempsRestantLabelTxt(String s) {
+		inGamePanel.setTempsRestantLabelTxt(s);
 	}
 
 	public void setEndGameVisibility(boolean b) {
