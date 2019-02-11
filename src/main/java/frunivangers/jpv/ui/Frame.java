@@ -12,8 +12,9 @@ import javax.swing.BoxLayout;
 public class Frame extends JFrame {
 	private JLabel titleLabel=null;
 	private MenuPanel menuPanel=null;
-	private Ingame inGame=null;
+	private Ingame inGamePanel=null;
 	private OptionsPanel optionsPanel=null;
+	private JLabel endGameLabel=null;
 
 	public Frame(String title, Engine e) {
 		setLayout(new BoxLayout(getContentPane(), BoxLayout.Y_AXIS));
@@ -32,14 +33,17 @@ public class Frame extends JFrame {
 		menuPanel.setBorder(new EmptyBorder(100,10,10,10));
 		add(menuPanel);
 
-		inGame=new Ingame(e);
-		add(inGame);
-		inGame.setVisible(false);
+		inGamePanel=new Ingame(e);
+		add(inGamePanel);
+		inGamePanel.setVisible(false);
 		
 		optionsPanel=new OptionsPanel(e);
 		optionsPanel.setBorder(new EmptyBorder(100,10,10,10));
 		add(optionsPanel);
 		optionsPanel.setVisible(false);
+
+		endGameLabel=new JLabel();
+		endGameLabel.setVisible(false);
 	}
 
 	public void setTitleLabelText(String title) {
@@ -51,7 +55,7 @@ public class Frame extends JFrame {
 	}
 
 	public void setInGameVisibility(boolean b) {
-		if(inGame!=null) inGame.setVisible(b);
+		if(inGamePanel!=null) inGamePanel.setVisible(b);
 	}
 
 	public void setOptionsVisibility(boolean b) {
@@ -63,6 +67,14 @@ public class Frame extends JFrame {
 	}
 
 	public void setImage(String slot, String path) throws IOException {
-		inGame.setImage(slot, path);
+		inGamePanel.setImage(slot, path);
+	}
+
+	public void setEndGameLabelVisibility(boolean b) {
+		endGameLabel.setVisible(b);
+	}
+
+	public void setEndGameLabelText(String s) {
+		endGameLabel.setText(s);
 	}
 }
