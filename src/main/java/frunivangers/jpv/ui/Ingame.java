@@ -1,6 +1,7 @@
 package frunivangers.jpv.ui;
 
 import java.awt.FlowLayout;
+import java.awt.Font;
 import java.awt.GridLayout;
 import java.io.IOException;
 
@@ -147,6 +148,7 @@ public class Ingame extends JPanel {
 		abandonButton.addActionListener(e);
 		abandonButton.setActionCommand("abort");
 		abandonButton.setAlignmentX(CENTER_ALIGNMENT);
+		abandonButton.setFont(new Font(abandonButton.getFont().getFontName(), Font.BOLD, 20));
 		add(abandonButton);
 	}
 

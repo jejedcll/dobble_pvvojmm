@@ -8,6 +8,8 @@ public interface Engine extends ActionListener {
 	public void setOptions(int scoreLimit, long timeLimit, int symboleLimit);
 	public void abortOptions();
 	public void abortGame();
+	public void endGame(String endGameText);
+	public void backToMenu();
 	public void compare(String jeu, int id);
 	public void exit();
 }

@@ -14,7 +14,7 @@ public class Frame extends JFrame {
 	private MenuPanel menuPanel=null;
 	private Ingame inGamePanel=null;
 	private OptionsPanel optionsPanel=null;
-	private JLabel endGameLabel=null;
+	private EndGamePanel endGamePanel=null;
 
 	public Frame(String title, Engine e) {
 		setLayout(new BoxLayout(getContentPane(), BoxLayout.Y_AXIS));
@@ -32,6 +32,7 @@ public class Frame extends JFrame {
 		menuPanel=new MenuPanel(e);
 		menuPanel.setBorder(new EmptyBorder(100,10,10,10));
 		add(menuPanel);
+		menuPanel.setVisible(false);
 
 		inGamePanel=new Ingame(e);
 		add(inGamePanel);
@@ -42,8 +43,9 @@ public class Frame extends JFrame {
 		add(optionsPanel);
 		optionsPanel.setVisible(false);
 
-		endGameLabel=new JLabel();
-		endGameLabel.setVisible(false);
+		endGamePanel=new EndGamePanel(e);
+		add(endGamePanel);
+		endGamePanel.setVisible(true);
 	}
 
 	public void setTitleLabelText(String title) {
@@ -70,11 +72,11 @@ public class Frame extends JFrame {
 		inGamePanel.setImage(slot, path);
 	}
 
-	public void setEndGameLabelVisibility(boolean b) {
-		endGameLabel.setVisible(b);
+	public void setEndGameVisibility(boolean b) {
+		endGamePanel.setVisible(b);
 	}
 
 	public void setEndGameLabelText(String s) {
-		endGameLabel.setText(s);
+		endGamePanel.setEndGameLabelText(s);
 	}
 }

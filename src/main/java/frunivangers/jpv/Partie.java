@@ -51,6 +51,19 @@ public class Partie implements Engine {
 	}
 
 	@Override
+	public void endGame(String endGameText) {
+		frame.setInGameVisibility(false);
+		frame.setEndGameLabelText(endGameText);
+		frame.setEndGameVisibility(true);
+	}
+
+	@Override
+	public void backToMenu() {
+		frame.setEndGameVisibility(false);
+		frame.setMenuVisibility(true);
+	}
+
+	@Override
 	// jeu indique dans quel jeu on a cliqué: ia ou joueur
 	public void compare(String jeu, int id) {
 		System.out.println("jeu dans lequel on a cliqué: "+jeu+" - id du symbole qui a été cliqué: "+id);
@@ -96,9 +109,12 @@ public class Partie implements Engine {
 				if(symboleLimit>8) symboleLimit=8;
 				setOptions(scoreLimit, timeLimit*1000, symboleLimit);
 				break;
+			case "back":
+				backToMenu();
+				break;
 			default:
 				// de la forme jeuCliqué=idCarte
-				// pas besoin de redéclarer le type de splitted car déjà fait au-dessus
+				// pas besoin de redéclarer le type de splitted car déjà dans le cas validate
 				// fonctionne avec les bonnes valeur même si on ne passe jamais dans le cas validate
 				splitted=command.split("=");
 				compare(splitted[0], Integer.parseInt(splitted[1]));
