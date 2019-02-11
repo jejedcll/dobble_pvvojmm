@@ -152,55 +152,55 @@ public class Ingame extends JPanel {
 		add(abandonButton);
 	}
 
-	public void setImage(String slot, String path) throws IOException {
+	public void setImage(String slot, String path, int id) throws IOException {
 		switch(slot) {
 			case "ia1":
-				symbIa_1.setImage(path);
+				symbIa_1.setImage(path, id);
 				break;
 			case "ia2":
-				symbIa_2.setImage(path);
+				symbIa_2.setImage(path, id);
 				break;
 			case "ia3":
-				symbIa_3.setImage(path);
+				symbIa_3.setImage(path, id);
 				break;
 			case "ia4":
-				symbIa_4.setImage(path);
+				symbIa_4.setImage(path, id);
 				break;
 			case "ia5":
-				symbIa_5.setImage(path);
+				symbIa_5.setImage(path, id);
 				break;
 			case "ia6":
-				symbIa_6.setImage(path);
+				symbIa_6.setImage(path, id);
 				break;
 			case "ia7":
-				symbIa_7.setImage(path);
+				symbIa_7.setImage(path, id);
 				break;
 			case "ia8":
-				symbIa_8.setImage(path);
+				symbIa_8.setImage(path, id);
 				break;
 			case "j1":
-				symbJ_1.setImage(path);
+				symbJ_1.setImage(path, id);
 				break;
 			case "j2":
-				symbJ_2.setImage(path);
+				symbJ_2.setImage(path, id);
 				break;
 			case "j3":
-				symbJ_3.setImage(path);
+				symbJ_3.setImage(path, id);
 				break;
 			case "j4":
-				symbJ_4.setImage(path);
+				symbJ_4.setImage(path, id);
 				break;
 			case "j5":
-				symbJ_5.setImage(path);
+				symbJ_5.setImage(path, id);
 				break;
 			case "j6":
-				symbJ_6.setImage(path);
+				symbJ_6.setImage(path, id);
 				break;
 			case "j7":
-				symbJ_7.setImage(path);
+				symbJ_7.setImage(path, id);
 				break;
 			case "j8":
-				symbJ_8.setImage(path);
+				symbJ_8.setImage(path, id);
 				break;
 				
 		}

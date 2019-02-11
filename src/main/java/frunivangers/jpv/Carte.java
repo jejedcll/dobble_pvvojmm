@@ -1,30 +1,29 @@
 package frunivangers.jpv;
 
 import java.util.List;
-import java.util.ArrayList;
 
 public class Carte {
-	
 	private List<Symbole> symboles;
-	
+
 	public Carte(List<Symbole> s) {
-		this.symboles= s;
+		symboles=s;
 	}
-	
-	public List<Symbole> GetSymboles() {
-		return this.symboles;
+
+	public List<Symbole> getSymboles() {
+		return symboles;
 	}
-	
-	
-	private boolean CompareSymbole(Symbole s) {
-		boolean symidentique =false;
-		for(int i=0;i<this.symboles.size();i++) {
-				if(this.symboles.get(i).getId()==s.getId()) symidentique =true;
-				if(symidentique) break;
+
+	public Symbole getSymbole(int i) {
+		return symboles.get(i);
+	}
+
+	public boolean compareSymbole(Symbole s) {
+		boolean symidentique=false;
+		for(int i=0; i<symboles.size(); i++) {
+			if(symboles.get(i).getId()==s.getId()) symidentique=true;
+			if(symidentique) break;
 		}
-		
 		return symidentique;
-		
 	}
 
 	@Override

@@ -9,15 +9,14 @@ public class Joueur {
 	private int score;
 	private List<Carte> main;
 	private List<JoueurObservateur> obs;
-	
+
 	public Joueur() {
-		this.score=0;
-		this.main = new ArrayList<Carte>();
-		this.id =conteur;
+		score=0;
+		main=new ArrayList<Carte>();
+		id=conteur;
 		conteur++;
 	}
-	
-	
+
 	public int getId() {
 		return id;
 	}
@@ -26,17 +25,20 @@ public class Joueur {
 		return score;
 	}
 
-	public void setScore(int score) {
-		this.score = score;
+	public void setScore(int s) {
+		score=s;
 	}
 
 	public List<Carte> getMain() {
 		return main;
 	}
 
-
 	public void ajouterCarte(Carte carte){
-		this.main.add(carte);
+		main.add(carte);
 	}
 
+	public void reset() {
+		score=0;
+		main.clear();
+	}
 }

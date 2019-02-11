@@ -67,8 +67,8 @@ public class Frame extends JFrame {
 		return optionsPanel.getOptionsValue();
 	}
 
-	public void setImage(String slot, String path) throws IOException {
-		inGamePanel.setImage(slot, path);
+	public void setImage(String slot, String path, int id) throws IOException {
+		inGamePanel.setImage(slot, path, id);
 	}
 
 	public void setEndGameVisibility(boolean b) {

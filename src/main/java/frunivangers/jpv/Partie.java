@@ -1,6 +1,8 @@
 package frunivangers.jpv;
 
 import java.awt.event.ActionEvent;
+import java.io.IOException;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Timer;
 
@@ -13,8 +15,9 @@ public class Partie implements Engine {
 	private Timer timer;
 	private Plateau plateau;
 	private Frame frame;
-	
+
 	public Partie() {
+		plateau=new Plateau();
 		frame=new Frame("Projet Dooble", this);
 		frame.setSize(1200, 900);
 	}
@@ -22,6 +25,9 @@ public class Partie implements Engine {
 	@Override
 	public void debutPartie() {
 		frame.setMenuVisibility(false);
+		tour=1;
+		plateau.newGame(c);
+		showSymboles(plateau.retourneCarte(1));
 		frame.setInGameVisibility(true);
 	}
 
@@ -45,6 +51,21 @@ public class Partie implements Engine {
 	}
 
 	@Override
+	public void showSymboles(HashMap<String, Carte> cartes) {
+		for(String main: cartes.keySet()) {
+			// carteIA d'abord, puis carteJoueur
+			int i=1;
+			for(Symbole s: cartes.get(main).getSymboles()) {
+				try {
+					frame.setImage(main.equals("j") ? "j"+i : "ia"+i, "images/"+s.getVariante().getCheminCouleur(), s.getVariante().getId());
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+	}
+
+	@Override
 	public void abortGame() {
 		frame.setInGameVisibility(false);
 		frame.setMenuVisibility(true);
@@ -64,9 +85,10 @@ public class Partie implements Engine {
 	}
 
 	@Override
-	// jeu indique dans quel jeu on a cliqué: ia ou joueur
+	// jeu indique dans quel jeu on a cliqué: ia ou joueur, id est l'id du symbole dans le jeu, de 1 à 8
 	public void compare(String jeu, int id) {
 		System.out.println("jeu dans lequel on a cliqué: "+jeu+" - id du symbole qui a été cliqué: "+id);
+		plateau.compare(jeu, id);
 	}
 
 	@Override
@@ -118,6 +140,7 @@ public class Partie implements Engine {
 				// fonctionne avec les bonnes valeur même si on ne passe jamais dans le cas validate
 				splitted=command.split("=");
 				compare(splitted[0], Integer.parseInt(splitted[1]));
+				tour++;
 				break;
 		}
 	}

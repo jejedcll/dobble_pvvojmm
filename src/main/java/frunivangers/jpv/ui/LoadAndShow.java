@@ -15,7 +15,7 @@ Dimension size=new Dimension();
 
 	public LoadAndShow() {}
 	// si path est relatif, sa racine est le dossier d'exécution du programme. Si lancé via éclipse, c'est la racine du projet
-	public LoadAndShow(String path) throws IOException {
+	public LoadAndShow(String path, int id) throws IOException {
 		try {
 			image=ImageIO.read(new File(path));
 			size.setSize(image.getWidth(), image.getHeight());
@@ -25,9 +25,10 @@ Dimension size=new Dimension();
 		}
 	}
 
-	public void setImage(String path) throws IOException {
+	public void setImage(String path, int id) throws IOException {
 		try {
 			image=ImageIO.read(new File(path));
+			image=image.getSubImage((id-1)*52,id/15*65,?,?);
 			size.setSize(image.getWidth(), image.getHeight());
 		} catch (IOException e) {
 			System.out.println("Erreur chargement de l'image "+path+" dans la classe LoadAndShow !");
