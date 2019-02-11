@@ -26,7 +26,7 @@ public class Partie implements Engine {
 	public void debutPartie() {
 		frame.setMenuVisibility(false);
 		tour=1;
-		plateau.newGame(c);
+		plateau.newGame();
 		showSymboles(plateau.retourneCarte(1));
 		frame.setInGameVisibility(true);
 	}

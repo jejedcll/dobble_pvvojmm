@@ -45,6 +45,7 @@ public class GenerateurPaquetMiniZinc implements GenerateurPaquet {
         File dataFile = this.setUpDataFile(nombreCarte, nombreSymbol, nombreSymboleParCarte, nombreVariantes);
         Model model = this.loadFromMinizinc(dataFile);
 
+        System.out.println(model);
         logger.info("Minizinc", "Model loaded from minizinc : " + model.toString());
 
         List<Carte> carteList = this.cartesListFromModel(model);
@@ -92,6 +93,7 @@ public class GenerateurPaquetMiniZinc implements GenerateurPaquet {
         Gson gson = new Gson();
 
         logger.info("Deserializing json");
+        logger.debug("'" + jsonModel + "'");
         Model model = gson.fromJson(jsonModel, Model.class);
 
         logger.info("Json deserialized");

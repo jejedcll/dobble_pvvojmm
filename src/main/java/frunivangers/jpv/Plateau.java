@@ -3,6 +3,18 @@ package frunivangers.jpv;
 import java.util.HashMap;
 import java.util.List;
 
+import frunivangers.jpv.generator.GenerateurPaquet;
+import frunivangers.jpv.generator.GenerateurPaquetMiniZinc;
+import repositories.SymboleFactory;
+import repositories.SymboleTypeRepository;
+import repositories.VarianteRepository;
+import repositories.impl.JsonFileVarianteRepository;
+import repositories.impl.StaticSymboleTypeRepository;
+import repositories.impl.SymboleFactoryImpl;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+
 public class Plateau {
 	private Joueur J1;
 	private Joueur IA;
@@ -17,10 +29,24 @@ public class Plateau {
 		IA=new Joueur();		
 	}
 
-	public void newGame(List<Carte> c) {
+	public void newGame() {
 		J1.reset();
 		IA.reset();
-		pioche=new Paquet(c);
+      try{
+    	  SymboleTypeRepository symboleTypeRepository = new StaticSymboleTypeRepository();
+    	  VarianteRepository varianteRepository = JsonFileVarianteRepository.fromFile(new File("variantes.json"));
+    	  SymboleFactory symboleFactory = new SymboleFactoryImpl(symboleTypeRepository, varianteRepository);
+    	  GenerateurPaquet generateurPaquet = new GenerateurPaquetMiniZinc("./minizinc-bundle", symboleFactory, true);
+    	  pioche = generateurPaquet.generate(7,7,3,3);
+    	  for (Carte c : pioche.getCartes()){
+    		  System.out.println(c.toString());
+    	  }
+      } catch (FileNotFoundException e) {
+    	  e.printStackTrace();
+      	} catch (Exception e) {
+      e.printStackTrace();
+      }
+	
 		pioche.Distribuer(new Joueur[] {J1, IA});
 	}
 
