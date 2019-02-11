@@ -5,6 +5,7 @@ import javax.swing.JLabel;
 import javax.swing.border.EmptyBorder;
 
 import java.awt.Font;
+import java.io.IOException;
 
 import javax.swing.BoxLayout;
 
@@ -59,5 +60,9 @@ public class Frame extends JFrame {
 
 	public String getOptionsValue() {
 		return optionsPanel.getOptionsValue();
+	}
+
+	public void setImage(String slot, String path) throws IOException {
+		inGame.setImage(slot, path);
 	}
 }

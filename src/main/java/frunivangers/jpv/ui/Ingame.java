@@ -9,11 +9,27 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-public class Ingame extends JPanel{
+public class Ingame extends JPanel {
 	private JLabel nbTourLabel;
 	private JLabel scoreJoueurLabel;
 	private JLabel scoreIaLabel;
 	private JLabel tempsRestantLabel;
+	LoadAndShow symbIa_1;
+	LoadAndShow symbIa_2;
+	LoadAndShow symbIa_3;
+	LoadAndShow symbIa_4;
+	LoadAndShow symbIa_5;
+	LoadAndShow symbIa_6;
+	LoadAndShow symbIa_7;
+	LoadAndShow symbIa_8;
+	LoadAndShow symbJ_1;
+	LoadAndShow symbJ_2;
+	LoadAndShow symbJ_3;
+	LoadAndShow symbJ_4;
+	LoadAndShow symbJ_5;
+	LoadAndShow symbJ_6;
+	LoadAndShow symbJ_7;
+	LoadAndShow symbJ_8;
 
 	public Ingame(Engine e) {
 		setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));
@@ -60,14 +76,14 @@ public class Ingame extends JPanel{
 		bandeauInf.add(tempsRestantLabel);
 
 		// création des symbole pour l'IA;
-		LoadAndShow symbIa_1=new LoadAndShow();
-		LoadAndShow symbIa_2=new LoadAndShow();
-		LoadAndShow symbIa_3=new LoadAndShow();
-		LoadAndShow symbIa_4=new LoadAndShow();
-		LoadAndShow symbIa_5=new LoadAndShow();
-		LoadAndShow symbIa_6=new LoadAndShow();
-		LoadAndShow symbIa_7=new LoadAndShow();
-		LoadAndShow symbIa_8=new LoadAndShow();
+		symbIa_1=new LoadAndShow();
+		symbIa_2=new LoadAndShow();
+		symbIa_3=new LoadAndShow();
+		symbIa_4=new LoadAndShow();
+		symbIa_5=new LoadAndShow();
+		symbIa_6=new LoadAndShow();
+		symbIa_7=new LoadAndShow();
+		symbIa_8=new LoadAndShow();
 		symbIa_1.addActionListener(e);
 		symbIa_2.addActionListener(e);
 		symbIa_3.addActionListener(e);
@@ -94,14 +110,14 @@ public class Ingame extends JPanel{
 		symboleIa.add(symbIa_8);
 
 		//création des symbole pour le joueur;
-		LoadAndShow symbJ_1 = new LoadAndShow();
-		LoadAndShow symbJ_2=new LoadAndShow();
-		LoadAndShow symbJ_3=new LoadAndShow();
-		LoadAndShow symbJ_4=new LoadAndShow();
-		LoadAndShow symbJ_5=new LoadAndShow();
-		LoadAndShow symbJ_6=new LoadAndShow();
-		LoadAndShow symbJ_7=new LoadAndShow();
-		LoadAndShow symbJ_8=new LoadAndShow();
+		symbJ_1 = new LoadAndShow();
+		symbJ_2=new LoadAndShow();
+		symbJ_3=new LoadAndShow();
+		symbJ_4=new LoadAndShow();
+		symbJ_5=new LoadAndShow();
+		symbJ_6=new LoadAndShow();
+		symbJ_7=new LoadAndShow();
+		symbJ_8=new LoadAndShow();
 		symbJ_1.addActionListener(e);
 		symbJ_2.addActionListener(e);
 		symbJ_3.addActionListener(e);
@@ -132,5 +148,59 @@ public class Ingame extends JPanel{
 		abandonButton.setActionCommand("abort");
 		abandonButton.setAlignmentX(CENTER_ALIGNMENT);
 		add(abandonButton);
+	}
+
+	public void setImage(String slot, String path) throws IOException {
+		switch(slot) {
+			case "ia1":
+				symbIa_1.setImage(path);
+				break;
+			case "ia2":
+				symbIa_2.setImage(path);
+				break;
+			case "ia3":
+				symbIa_3.setImage(path);
+				break;
+			case "ia4":
+				symbIa_4.setImage(path);
+				break;
+			case "ia5":
+				symbIa_5.setImage(path);
+				break;
+			case "ia6":
+				symbIa_6.setImage(path);
+				break;
+			case "ia7":
+				symbIa_7.setImage(path);
+				break;
+			case "ia8":
+				symbIa_8.setImage(path);
+				break;
+			case "j1":
+				symbJ_1.setImage(path);
+				break;
+			case "j2":
+				symbJ_2.setImage(path);
+				break;
+			case "j3":
+				symbJ_3.setImage(path);
+				break;
+			case "j4":
+				symbJ_4.setImage(path);
+				break;
+			case "j5":
+				symbJ_5.setImage(path);
+				break;
+			case "j6":
+				symbJ_6.setImage(path);
+				break;
+			case "j7":
+				symbJ_7.setImage(path);
+				break;
+			case "j8":
+				symbJ_8.setImage(path);
+				break;
+				
+		}
 	}
 }
