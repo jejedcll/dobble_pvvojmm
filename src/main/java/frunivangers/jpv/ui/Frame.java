@@ -32,7 +32,6 @@ public class Frame extends JFrame {
 		menuPanel=new MenuPanel(e);
 		menuPanel.setBorder(new EmptyBorder(100,10,10,10));
 		add(menuPanel);
-		menuPanel.setVisible(false);
 
 		inGamePanel=new Ingame(e);
 		add(inGamePanel);
@@ -45,7 +44,7 @@ public class Frame extends JFrame {
 
 		endGamePanel=new EndGamePanel(e);
 		add(endGamePanel);
-		endGamePanel.setVisible(true);
+		endGamePanel.setVisible(false);
 	}
 
 	public void setTitleLabelText(String title) {
