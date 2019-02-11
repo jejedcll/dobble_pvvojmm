@@ -1,0 +1,66 @@
+{
+  "nc":7,
+  "ns":7,
+  "nsc":3,
+  "nv":3,
+  "cards_symbols": [
+    {
+      "id":1,
+      "symboles": [1,2,3]
+    },
+    {
+      "id":2,
+      "symboles": [2,5,7]
+    },
+    {
+      "id":3,
+      "symboles": [1,6,7]
+    },
+    {
+      "id":4,
+      "symboles": [3,4,7]
+    },
+    {
+      "id":5,
+      "symboles": [3,5,6]
+    },
+    {
+      "id":6,
+      "symboles": [2,4,6]
+    },
+    {
+      "id":7,
+      "symboles": [1,4,5]
+    }
+  ],
+  "cards_variantes": [
+    {
+      "id":1,
+      "variantes": [1,2,3]
+    },
+    {
+      "id":2,
+      "variantes": [2,2,3]
+    },
+    {
+      "id":3,
+      "variantes": [2,2,3]
+    },
+    {
+      "id":4,
+      "variantes": [1,1,2]
+    },
+    {
+      "id":5,
+      "variantes": [1,1,2]
+    },
+    {
+      "id":6,
+      "variantes": [1,1,2]
+    },
+    {
+      "id":7,
+      "variantes": [1,1,2]
+    }
+  ]
+}

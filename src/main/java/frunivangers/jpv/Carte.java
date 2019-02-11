@@ -26,4 +26,11 @@ public class Carte {
 		return symidentique;
 		
 	}
+
+	@Override
+	public String toString() {
+		return "Carte{" +
+				"symboles=" + symboles +
+				'}';
+	}
 }

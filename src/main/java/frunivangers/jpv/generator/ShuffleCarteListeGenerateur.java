@@ -30,7 +30,8 @@ public class ShuffleCarteListeGenerateur implements CarteListeGenerateur{
 
             List<Integer> varianteIdList = new ArrayList<>();
             for(int v : variantes.variantes){varianteIdList.add(v);}
-            Collections.shuffle(varianteIdList);
+
+            Collections.shuffle(varianteIdList, new Random());
 
             for(int j = 0; j < symbols.symboles.length; ++j){
                 symboleList.add(this.symboleFactory.createSymbole(symbols.symboles[j], varianteIdList.get(j)));

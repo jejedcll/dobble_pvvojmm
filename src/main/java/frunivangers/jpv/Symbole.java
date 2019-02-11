@@ -20,4 +20,12 @@ public class Symbole {
 	public Variante getVariante() {
 		return variante;
 	}
+
+	@Override
+	public String toString() {
+		return "Symbole{" +
+				 symboleType.getId() +
+				", " + variante.getId() +
+				'}';
+	}
 }

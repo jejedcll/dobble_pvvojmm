@@ -39,5 +39,10 @@ public class Variante {
 		return cheminCouleur;
 	}
 
-
+	@Override
+	public String toString() {
+		return "Variante{" +
+				"id=" + id +
+				'}';
+	}
 }

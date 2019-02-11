@@ -24,4 +24,8 @@ public class Paquet {
 			}
 		}
 	}
+
+	public List<Carte> getCartes(){
+		return Collections.unmodifiableList(this.cartes);
+	}
 }

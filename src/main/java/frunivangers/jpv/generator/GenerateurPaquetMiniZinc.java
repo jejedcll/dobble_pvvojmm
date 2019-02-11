@@ -57,9 +57,9 @@ public class GenerateurPaquetMiniZinc implements GenerateurPaquet {
 
         CarteListeGenerateur carteListeGenerateur;
         if(this.shuffle){
-            carteListeGenerateur = new SimpleCarteListeGenerateur(this.symboleFactory);
-        }else{
             carteListeGenerateur = new ShuffleCarteListeGenerateur(this.symboleFactory);
+        }else{
+            carteListeGenerateur = new SimpleCarteListeGenerateur(this.symboleFactory);
         }
         return carteListeGenerateur.fromModel(model);
     }
