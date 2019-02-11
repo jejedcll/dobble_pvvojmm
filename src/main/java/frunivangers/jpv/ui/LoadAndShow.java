@@ -18,6 +18,11 @@ Dimension size=new Dimension();
 	public LoadAndShow(String path, int id) throws IOException {
 		try {
 			image=ImageIO.read(new File(path));
+			int x=(((id-1)%15)*52)-3;
+			if(x<0) x=0;
+			int y=(id/15)*72;
+			if(id%15==0) y-=72;
+			image=image.getSubimage(x, y, 48, 65);
 			size.setSize(image.getWidth(), image.getHeight());
 		} catch (IOException e) {
 			System.out.println("Erreur chargement de l'image "+path+" dans la classe LoadAndShow !");
@@ -28,7 +33,11 @@ Dimension size=new Dimension();
 	public void setImage(String path, int id) throws IOException {
 		try {
 			image=ImageIO.read(new File(path));
-			image=image.getSubImage((id-1)*52,id/15*65,?,?);
+			int x=(((id-1)%15)*52)-3;
+			if(x<0) x=0;
+			int y=(id/15)*72;
+			if(id%15==0) y-=72;
+			image=image.getSubimage(x, y, 48, 65);
 			size.setSize(image.getWidth(), image.getHeight());
 		} catch (IOException e) {
 			System.out.println("Erreur chargement de l'image "+path+" dans la classe LoadAndShow !");
