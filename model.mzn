@@ -41,7 +41,7 @@ constraint forall(s in SYMBOLES)(sum(c in CARTES, ss in SYMB_CARTES)(bool2int(je
 %somme pour chaque variantes dans tous le jeu
 constraint forall(v in VARIANTES)(sum(c in CARTES, sc in SYMB_CARTES)(bool2int(jeu_var[c, sc]=v))=nb_var[v]);
 
-constraint forall(c in CARTES)(increasing([jeu_var[c, v]| v in VARIANTES]));
+constraint forall(c in CARTES)(increasing([jeu_var[c, sc]| sc in SYMB_CARTES]));
 
 constraint forall(v in VARIANTES)(nb_var[v] <= Max_Variantes);
 
