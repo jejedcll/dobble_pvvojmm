@@ -32,7 +32,7 @@ public class Plateau {
 		return new Joueur[] {IA, J1};
 	}
 
-	public void newGame(int nombreCarte, int nombreSymboleParCarte) {
+	public void newGame(int nombreCarte, int nombreSymbole, int nombreSymboleParCarte, int nombreVariante) {
 		J1.reset();
 		IA.reset();
       try{
@@ -40,7 +40,7 @@ public class Plateau {
     	  VarianteRepository varianteRepository = JsonFileVarianteRepository.fromFile(new File("variantes.json"));
     	  SymboleFactory symboleFactory = new SymboleFactoryImpl(symboleTypeRepository, varianteRepository);
     	  GenerateurPaquet generateurPaquet = new GenerateurPaquetMiniZinc("./minizinc-bundle", symboleFactory, true);
-    	  pioche=generateurPaquet.generate(nombreCarte, 20, nombreSymboleParCarte, 48);
+    	  pioche=generateurPaquet.generate(nombreCarte, nombreSymbole, nombreSymboleParCarte, nombreVariante);
     	  for (Carte c : pioche.getCartes()){
     		  System.out.println(c.toString());
     	  }

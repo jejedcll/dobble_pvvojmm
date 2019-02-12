@@ -67,16 +67,24 @@ public class Frame extends JFrame {
 		return optionsPanel.getOptionsValue();
 	}
 
-	public void setCarteFieldTxt(String s) {
-		optionsPanel.setCarteFieldTxt(s);
-	}
-
 	public void setTimeFieldTxt(String s) {
 		optionsPanel.setTimeFieldTxt(s);
 	}
 
+	public void setCarteFieldTxt(String s) {
+		optionsPanel.setCarteFieldTxt(s);
+	}
+
 	public void setSymboleFieldTxt(String s) {
 		optionsPanel.setSymboleFieldTxt(s);
+	}
+
+	public void setSymboleCarteFieldTxt(String s) {
+		optionsPanel.setSymboleCarteFieldTxt(s);
+	}
+
+	public void setVarianteFieldTxt(String s) {
+		optionsPanel.setVarianteFieldTxt(s);
 	}
 
 	public void setImage(String slot, String path, int id) throws IOException {

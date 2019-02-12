@@ -40,6 +40,7 @@ public class GenerateurPaquetMiniZinc implements GenerateurPaquet {
         assert nombreSymboleParCarte <= 8;
         assert nombreSymboleParCarte <= nombreSymbol;
         assert nombreVariantes > 0;
+        assert nombreVariantes <= 48;
 
         logger.info("Starting minizinc generation with parameters : NC=" + nombreCarte + ", NS=" + nombreSymbol + ", NSC=" + nombreSymboleParCarte + ", NV=" + nombreVariantes);
 

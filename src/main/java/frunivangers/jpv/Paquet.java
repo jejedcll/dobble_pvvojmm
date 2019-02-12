@@ -16,7 +16,7 @@ public class Paquet {
 	}
 
 	public void Distribuer(Joueur[] joueurs) {
-		for(int i=0; i<(this.cartes.size())-joueurs.length; i+=joueurs.length) {
+		for(int i=0; i<=(this.cartes.size())-joueurs.length; i+=joueurs.length) {
 			for(int j=0; j<joueurs.length; j++) {
 				joueurs[j].ajouterCarte(this.cartes.get(i+j));
 			}
