@@ -93,14 +93,21 @@ public class GenerateurPaquetMiniZinc implements GenerateurPaquet {
         String jsonModel = this.runMinizinc(dataFile);
 
         Gson gson = new Gson();
-
+        System.out.println(">" + jsonModel);
         logger.info("Deserializing json");
         logger.debug("'" + jsonModel + "'");
-        Model model = gson.fromJson(jsonModel, Model.class);
+        try {
+            Model model = gson.fromJson(jsonModel, Model.class);
+        	
+            logger.info("Json deserialized");
+            return model;
+        }catch(Exception e) {
+        	logger.error("Gson error", e);
+        	logger.error(jsonModel);
+        	throw e;
+        }
 
-        logger.info("Json deserialized");
 
-        return model;
     }
 
     protected String runMinizinc(File dataFile) throws IOException, InterruptedException {
@@ -109,7 +116,7 @@ public class GenerateurPaquetMiniZinc implements GenerateurPaquet {
 
         // Run a shell command
         String command = "export LD_LIBRARY_PATH=" + minizincPath + "/lib:$LD_LIBRARY_PATH"
-                + " && " + minizincPath +"/bin/minizinc model.mzn " + dataFile.getAbsolutePath()
+                + " && " + minizincPath +"/bin/minizinc model.mzn \"" + dataFile.getAbsolutePath() + "\""
                 + "| head -n -1";
         logger.info("Running minizinc with command : \"" + command + "\"");
 
